@@ -1,15 +1,19 @@
 {
   "pages": [
     {
-      "id": "Page1",
+      "id": "Home",
       "isDefault": true
     },
     {
-      "id": "Page2",
+      "id": "Login",
       "isDefault": false
     },
     {
-      "id": "Page3",
+      "id": "SignUp",
+      "isDefault": false
+    },
+    {
+      "id": "Static",
       "isDefault": false
     }
   ],
@@ -17,19 +21,23 @@
   "appIsExample": false,
   "unreadCommentThreads": 0,
   "unpublishedApplicationDetail": {
+    "appPositioning": {
+      "type": "AUTO"
+    },
     "navigationSetting": {
       "showNavbar": true,
-      "orientation": "top",
-      "navStyle": "stacked",
+      "orientation": "side",
+      "navStyle": "sidebar",
       "position": "static",
       "itemStyle": "text",
-      "colorStyle": "light",
+      "colorStyle": "theme",
       "logoAssetId": "",
       "logoConfiguration": "logoAndApplicationTitle",
-      "showSignIn": true
+      "showSignIn": false
     }
   },
   "color": "#FBF4ED",
+  "icon": "call",
   "unpublishedAppLayout": {
     "type": "DESKTOP"
   },

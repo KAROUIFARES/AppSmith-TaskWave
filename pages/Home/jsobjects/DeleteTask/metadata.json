@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "DeleteTask",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Home_DeleteTask",
+  "deleted": false,
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a7ee9b5ed0a562a3092d1e"
+}

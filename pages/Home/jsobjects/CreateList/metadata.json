@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "CreateList",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Home_CreateList",
+  "deleted": false,
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a6ce88ea1c864cea8e20fd"
+}
