@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "mongo-plugin",
   "unpublishedAction": {
-    "name": "CreateListQuery",
+    "name": "UpdateUserQuery",
     "datasource": {
       "name": "MyDb",
       "pluginId": "mongo-plugin",
@@ -29,10 +29,10 @@
           }
         },
         "collection": {
-          "data": "lists"
+          "data": "users"
         },
         "command": {
-          "data": "INSERT"
+          "data": "UPDATE"
         },
         "count": {
           "query": {
@@ -74,12 +74,12 @@
         },
         "insert": {
           "documents": {
-            "data": "{\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}"
+            "data": ""
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"lists\",\n  \"documents\": {\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}\n}\n",
+            "data": "{\n  \"update\": \"users\",\n  \"updates\": [{\n    \"q\": {\"_id\":ObjectId('{{appsmith.store.UserId}}')},\n    \"u\": {\n  \"$set\":{\n    \"userName\":\"{{UserNameInput.text}}\",\n    \"password\":\"{{PasswordInput.text}}\"\n  }\n},\n    \"multi\": false,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -91,10 +91,10 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": ""
+            "data": "{\"_id\":ObjectId('{{appsmith.store.UserId}}')}"
           },
           "update": {
-            "data": ""
+            "data": "{\n  \"$set\":{\n    \"userName\":\"{{UserNameInput.text}}\",\n    \"password\":\"{{PasswordInput.text}}\"\n  }\n}"
           }
         }
       }
@@ -102,23 +102,27 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
-        "key": "formData.insert.documents.data"
+        "key": "formData.updateMany.query.data"
+      },
+      {
+        "key": "formData.updateMany.update.data"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "ListNameInput.text",
+      "PasswordInput.text",
+      "UserNameInput.text",
       "appsmith.store.UserId"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-07T19:38:06Z"
+    "createdAt": "2023-07-09T15:05:36Z"
   },
-  "id": "Home_CreateListQuery",
+  "id": "Home_UpdateUserQuery",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a8699e38cc6b4007734bdd"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64aaccc08113105abc860480"
 }

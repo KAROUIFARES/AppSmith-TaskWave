@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "mongo-plugin",
   "unpublishedAction": {
-    "name": "CreateListQuery",
+    "name": "GetTaskDurationByListIdQuery",
     "datasource": {
       "name": "MyDb",
       "pluginId": "mongo-plugin",
@@ -28,11 +28,14 @@
             "data": ""
           }
         },
+        "body": {
+          "data": "{\n  \"update\": \"tasks\",\n  \"updates\": [{\n    \"q\": {\"_id\":ObjectId('64a8035ce817c193b9626253')},\n    \"u\": {\"TaskState\":false},\n    \"multi\": false,\n  }]\n}\n"
+        },
         "collection": {
-          "data": "lists"
+          "data": "tasks"
         },
         "command": {
-          "data": "INSERT"
+          "data": "FIND"
         },
         "count": {
           "query": {
@@ -60,7 +63,7 @@
             "data": ""
           },
           "query": {
-            "data": ""
+            "data": "{\"ListId\":{{List1.selectedItem._id}}}"
           },
           "sort": {
             "data": ""
@@ -69,17 +72,17 @@
             "data": ""
           },
           "projection": {
-            "data": ""
+            "data": "{\"Duration\":1}"
           }
         },
         "insert": {
           "documents": {
-            "data": "{\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}"
+            "data": ""
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"lists\",\n  \"documents\": {\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}\n}\n",
+            "data": "{\n  \"update\": \"tasks\",\n  \"updates\": [{\n    \"q\": {\"_id\":ObjectId('64a8035ce817c193b9626253')},\n    \"u\": {\"TaskState\":false},\n    \"multi\": false,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -91,10 +94,10 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": ""
+            "data": "{\"_id\":ObjectId('64a8035ce817c193b9626253')}"
           },
           "update": {
-            "data": ""
+            "data": "{\"TaskState\":false}"
           }
         }
       }
@@ -102,23 +105,22 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
-        "key": "formData.insert.documents.data"
+        "key": "formData.find.query.data"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "ListNameInput.text",
-      "appsmith.store.UserId"
+      "List1.selectedItem._id"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-07T19:38:06Z"
+    "createdAt": "2023-07-08T18:48:25Z"
   },
-  "id": "Home_CreateListQuery",
+  "id": "Home_GetTaskDurationByListIdQuery",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a8699e38cc6b4007734bdd"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a9af79bb8c6f27aa9c776c"
 }

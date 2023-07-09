@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "mongo-plugin",
   "unpublishedAction": {
-    "name": "CreateListQuery",
+    "name": "UpdateProjectDurationQuery",
     "datasource": {
       "name": "MyDb",
       "pluginId": "mongo-plugin",
@@ -32,7 +32,7 @@
           "data": "lists"
         },
         "command": {
-          "data": "INSERT"
+          "data": "UPDATE"
         },
         "count": {
           "query": {
@@ -74,12 +74,12 @@
         },
         "insert": {
           "documents": {
-            "data": "{\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}"
+            "data": ""
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"lists\",\n  \"documents\": {\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}\n}\n",
+            "data": "{\n  \"update\": \"lists\",\n  \"updates\": [{\n    \"q\": {\"_id\":ObjectId('{{List1.selectedItem._id}}')},\n    \"u\": {\n  \"$set\":{\"ProjectDuration\":{{appsmith.store.ProjectDuration}}\n}},\n    \"multi\": false,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -91,10 +91,10 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": ""
+            "data": "{\"_id\":ObjectId('{{List1.selectedItem._id}}')}"
           },
           "update": {
-            "data": ""
+            "data": "{\n  \"$set\":{\"ProjectDuration\":{{appsmith.store.ProjectDuration}}\n}}"
           }
         }
       }
@@ -102,23 +102,26 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
-        "key": "formData.insert.documents.data"
+        "key": "formData.updateMany.query.data"
+      },
+      {
+        "key": "formData.updateMany.update.data"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "ListNameInput.text",
-      "appsmith.store.UserId"
+      "List1.selectedItem._id",
+      "appsmith.store.ProjectDuration"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-07T19:38:06Z"
+    "createdAt": "2023-07-09T12:39:18Z"
   },
-  "id": "Home_CreateListQuery",
+  "id": "Home_UpdateProjectDurationQuery",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a8699e38cc6b4007734bdd"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64aaaa768113105abc86043f"
 }

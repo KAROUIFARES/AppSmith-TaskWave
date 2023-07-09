@@ -13,7 +13,7 @@ export default {
 					navigateTo('Home',{})
 				}
     }).catch(error => {
-      showAlert('Wrong Data',Error())
+      showAlert('Wrong Data',"ERROR")
 			
     });
   }

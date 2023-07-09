@@ -1,6 +1,6 @@
 {
   "unpublishedCollection": {
-    "name": "JSObject1",
+    "name": "CreateTaskMethod",
     "pageId": "Home",
     "pluginId": "js-plugin",
     "pluginType": "JS",
@@ -9,7 +9,7 @@
     "variables": [],
     "userPermissions": []
   },
-  "id": "Home_JSObject1",
+  "id": "Home_CreateTaskMethod",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64aac7ec8113105abc860472"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a93484bc299a7f4f09998e"
 }

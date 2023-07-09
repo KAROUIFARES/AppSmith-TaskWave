@@ -11,10 +11,6 @@
     {
       "id": "SignUp",
       "isDefault": false
-    },
-    {
-      "id": "Static",
-      "isDefault": false
     }
   ],
   "viewMode": false,
@@ -22,10 +18,10 @@
   "unreadCommentThreads": 0,
   "unpublishedApplicationDetail": {
     "appPositioning": {
-      "type": "AUTO"
+      "type": "FIXED"
     },
     "navigationSetting": {
-      "showNavbar": true,
+      "showNavbar": false,
       "orientation": "side",
       "navStyle": "sidebar",
       "position": "static",
@@ -36,8 +32,8 @@
       "showSignIn": false
     }
   },
-  "color": "#FBF4ED",
-  "icon": "call",
+  "color": "#C7F3E3",
+  "icon": "bag",
   "unpublishedAppLayout": {
     "type": "DESKTOP"
   },

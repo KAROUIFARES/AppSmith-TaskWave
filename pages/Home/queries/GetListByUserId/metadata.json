@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "mongo-plugin",
   "unpublishedAction": {
-    "name": "CreateListQuery",
+    "name": "GetListByUserId",
     "datasource": {
       "name": "MyDb",
       "pluginId": "mongo-plugin",
@@ -29,10 +29,14 @@
           }
         },
         "collection": {
-          "data": "lists"
+          "data": "lists",
+          "viewType": "component",
+          "componentData": "MailingList"
         },
         "command": {
-          "data": "INSERT"
+          "data": "FIND",
+          "viewType": "component",
+          "componentData": "FIND"
         },
         "count": {
           "query": {
@@ -56,17 +60,25 @@
           }
         },
         "find": {
-          "skip": {
-            "data": ""
-          },
           "query": {
-            "data": ""
-          },
-          "sort": {
-            "data": ""
+            "data": "{ \"UserId\": \"{{appsmith.store.UserId}}\"}",
+            "viewType": "component",
+            "componentData": ""
           },
           "limit": {
-            "data": ""
+            "data": "4",
+            "viewType": "component",
+            "componentData": "4"
+          },
+          "skip": {
+            "data": "{{(List1.pageNo-1)*List1.pageSize}}",
+            "viewType": "component",
+            "componentData": "{{(List1.pageNo-1)*List1.pageSize}}"
+          },
+          "sort": {
+            "data": "",
+            "viewType": "component",
+            "componentData": "{_id:-1}"
           },
           "projection": {
             "data": ""
@@ -74,17 +86,19 @@
         },
         "insert": {
           "documents": {
-            "data": "{\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}"
+            "data": ""
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"lists\",\n  \"documents\": {\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}\n}\n",
+            "data": "{\n  \"find\": \"lists\",\n  \"filter\": { \"UserId\": \"{{appsmith.store.UserId}}\"},\n  \"skip\": {{(List1.pageNo-1)*List1.pageSize}},\n  \"limit\": 4,\n  \"batchSize\": 4\n}\n",
             "status": "SUCCESS"
           }
         },
         "smartSubstitution": {
-          "data": true
+          "data": true,
+          "viewType": "component",
+          "componentData": true
         },
         "updateMany": {
           "limit": {
@@ -99,26 +113,26 @@
         }
       }
     },
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "dynamicBindingPathList": [
       {
-        "key": "formData.insert.documents.data"
+        "key": "formData.find.query.data"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "ListNameInput.text",
+      "(List1.pageNo-1)*List1.pageSize",
       "appsmith.store.UserId"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-07T19:38:06Z"
+    "createdAt": "2023-07-07T12:47:42Z"
   },
-  "id": "Home_CreateListQuery",
+  "id": "Home_GetListByUserId",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a8699e38cc6b4007734bdd"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_2023-07-07T12:47:42.010782664Z"
 }

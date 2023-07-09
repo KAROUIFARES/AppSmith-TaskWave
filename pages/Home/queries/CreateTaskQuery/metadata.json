@@ -56,10 +56,10 @@
           }
         },
         "find": {
-          "query": {
+          "skip": {
             "data": ""
           },
-          "skip": {
+          "query": {
             "data": ""
           },
           "sort": {
@@ -74,12 +74,12 @@
         },
         "insert": {
           "documents": {
-            "data": "{\n\t\"TaskName\":\"{{TaskNameInput.text}}\",\n\t\"Description\":\"{{DescriptionInput.text}}\",\n\t\"Duration\":{{DurationValue.value}},\n\t\"ListId\":\"{{appsmith.store.ListId}}\",\n\t\"TaskSatet\":false\n}"
+            "data": "{\n\t\"TaskName\":\"{{TaskNameInput.text}}\",\n\t\"Description\":\"{{TaskDescriptionInput.text}}\",\n\t\"Duration\":\"{{TaskDuration.value}}\",\n\t\"ListId\":{{List1.selectedItem._id}}\n\t\"TaskState\":false\n}"
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"tasks\",\n  \"documents\": {\n\t\"TaskName\":\"{{TaskNameInput.text}}\",\n\t\"Description\":\"{{DescriptionInput.text}}\",\n\t\"Duration\":{{DurationValue.value}},\n\t\"ListId\":\"{{appsmith.store.ListId}}\",\n\t\"TaskSatet\":false\n}\n}\n",
+            "data": "{\n  \"insert\": \"tasks\",\n  \"documents\": {\n\t\"TaskName\":\"{{TaskNameInput.text}}\",\n\t\"Description\":\"{{TaskDescriptionInput.text}}\",\n\t\"Duration\":\"{{TaskDuration.value}}\",\n\t\"ListId\":{{List1.selectedItem._id}}\n\t\"TaskState\":false\n}\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -99,7 +99,7 @@
         }
       }
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
         "key": "formData.insert.documents.data"
@@ -109,18 +109,18 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "DescriptionInput.text",
-      "DurationValue.value",
-      "TaskNameInput.text",
-      "appsmith.store.ListId"
+      "List1.selectedItem._id",
+      "TaskDescriptionInput.text",
+      "TaskDuration.value",
+      "TaskNameInput.text"
     ],
-    "userSetOnLoad": true,
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-07T08:42:43Z"
+    "createdAt": "2023-07-08T09:57:44Z"
   },
   "id": "Home_CreateTaskQuery",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a7d0035ed0a562a3092cdc"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a93318bc299a7f4f099988"
 }

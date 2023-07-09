@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "mongo-plugin",
   "unpublishedAction": {
-    "name": "CreateListQuery",
+    "name": "NumberOfUsers",
     "datasource": {
       "name": "MyDb",
       "pluginId": "mongo-plugin",
@@ -28,11 +28,20 @@
             "data": ""
           }
         },
+        "body": {
+          "data": "{\"count\": \"Customers\"}\n",
+          "viewType": "component",
+          "componentData": "{\"count\": \"Customers\"}\n"
+        },
         "collection": {
-          "data": "lists"
+          "data": "users",
+          "viewType": "component",
+          "componentData": "Customers"
         },
         "command": {
-          "data": "INSERT"
+          "data": "COUNT",
+          "viewType": "component",
+          "componentData": "RAW"
         },
         "count": {
           "query": {
@@ -74,17 +83,13 @@
         },
         "insert": {
           "documents": {
-            "data": "{\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}"
-          }
-        },
-        "misc": {
-          "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"lists\",\n  \"documents\": {\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}\n}\n",
-            "status": "SUCCESS"
+            "data": ""
           }
         },
         "smartSubstitution": {
-          "data": true
+          "data": true,
+          "viewType": "component",
+          "componentData": true
         },
         "updateMany": {
           "limit": {
@@ -99,26 +104,19 @@
         }
       }
     },
-    "executeOnLoad": false,
-    "dynamicBindingPathList": [
-      {
-        "key": "formData.insert.documents.data"
-      }
-    ],
+    "executeOnLoad": true,
+    "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [
-      "ListNameInput.text",
-      "appsmith.store.UserId"
-    ],
+    "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-07T19:38:06Z"
+    "createdAt": "2023-07-07T12:47:42Z"
   },
-  "id": "Home_CreateListQuery",
+  "id": "Home_NumberOfUsers",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a8699e38cc6b4007734bdd"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_2023-07-07T12:47:42.013481462Z"
 }

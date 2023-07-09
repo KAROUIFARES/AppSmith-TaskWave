@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "mongo-plugin",
   "unpublishedAction": {
-    "name": "CreateListQuery",
+    "name": "UpdateTaskStateQuery",
     "datasource": {
       "name": "MyDb",
       "pluginId": "mongo-plugin",
@@ -29,10 +29,10 @@
           }
         },
         "collection": {
-          "data": "lists"
+          "data": "tasks"
         },
         "command": {
-          "data": "INSERT"
+          "data": "UPDATE"
         },
         "count": {
           "query": {
@@ -74,12 +74,12 @@
         },
         "insert": {
           "documents": {
-            "data": "{\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}"
+            "data": ""
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"lists\",\n  \"documents\": {\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}\n}\n",
+            "data": "{\n  \"update\": \"tasks\",\n  \"updates\": [{\n    \"q\": {\"_id\":ObjectId('{{Table1.selectedRow._id}}')},\n    \"u\": {$set:{\"TaskState\":true}},\n    \"multi\": false,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -91,10 +91,10 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": ""
+            "data": "{\"_id\":ObjectId('{{Table1.selectedRow._id}}')}"
           },
           "update": {
-            "data": ""
+            "data": "{$set:{\"TaskState\":true}}"
           }
         }
       }
@@ -102,23 +102,22 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
-        "key": "formData.insert.documents.data"
+        "key": "formData.updateMany.query.data"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "ListNameInput.text",
-      "appsmith.store.UserId"
+      "Table1.selectedRow._id"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-07T19:38:06Z"
+    "createdAt": "2023-07-08T21:16:45Z"
   },
-  "id": "Home_CreateListQuery",
+  "id": "Home_UpdateTaskStateQuery",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a8699e38cc6b4007734bdd"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a9d23dbb8c6f27aa9c7779"
 }

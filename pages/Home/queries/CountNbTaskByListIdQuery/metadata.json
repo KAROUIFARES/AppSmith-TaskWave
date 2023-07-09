@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "mongo-plugin",
   "unpublishedAction": {
-    "name": "CreateListQuery",
+    "name": "CountNbTaskByListIdQuery",
     "datasource": {
       "name": "MyDb",
       "pluginId": "mongo-plugin",
@@ -29,14 +29,14 @@
           }
         },
         "collection": {
-          "data": "lists"
+          "data": "tasks"
         },
         "command": {
-          "data": "INSERT"
+          "data": "COUNT"
         },
         "count": {
           "query": {
-            "data": ""
+            "data": "{\"ListId\":\"{{List1.selectedItem._id}}\"}"
           }
         },
         "delete": {
@@ -74,12 +74,12 @@
         },
         "insert": {
           "documents": {
-            "data": "{\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}"
+            "data": ""
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"lists\",\n  \"documents\": {\n\t\"ListName\":\"{{ListNameInput.text}}\",\n\t\"UserId\":\"{{appsmith.store.UserId}}\",\n\t\"Achevment\":0,\n\t\"ProjectDuration\":0\n}\n}\n",
+            "data": "{\n  \"count\": \"tasks\",\n  \"query\": {\"ListId\":\"{{List1.selectedItem._id}}\"},\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -102,23 +102,22 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
-        "key": "formData.insert.documents.data"
+        "key": "formData.count.query.data"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "ListNameInput.text",
-      "appsmith.store.UserId"
+      "List1.selectedItem._id"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-07-07T19:38:06Z"
+    "createdAt": "2023-07-08T10:33:47Z"
   },
-  "id": "Home_CreateListQuery",
+  "id": "Home_CountNbTaskByListIdQuery",
   "deleted": false,
-  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a8699e38cc6b4007734bdd"
+  "gitSyncId": "64a694f6ea1c864cea8e20b0_64a93b8bbc299a7f4f099992"
 }
