@@ -1,3 +1,5 @@
+<li>TaskWave est une application de gestion de projets conviviale et puissante, développée avec le framework low-code AppSmith. Elle vous permet de suivre et de gérer efficacement les tâches.Avec une interface intuitive et des fonctionnalités avancées </li>
+<li>Développée en utilisant le framework low-code AppSmith</li>
 ![](https://raw.githubusercontent.com/appsmithorg/appsmith/release/static/appsmith_logo_primary.png)
 
 This app is built using Appsmith. Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop components to build dashboards, write logic with JavaScript objects and connect to any API, database or GraphQL source.
